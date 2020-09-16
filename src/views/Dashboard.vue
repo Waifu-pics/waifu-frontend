@@ -75,7 +75,7 @@ export default {
 
       Axios({
         method: "post",
-        url: `/api/admin/${endpoint}`,
+        url: `${process.env.VUE_APP_API}/admin/${endpoint}`,
         data: {
           files: this.deletelist,
         },

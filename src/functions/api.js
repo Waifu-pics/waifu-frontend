@@ -1,5 +1,4 @@
 const { default: Axios } = require("axios")
-
 export const api = {
   getEndpoints: (callback) => {
     Axios({
@@ -10,14 +9,14 @@ export const api = {
     })
   },
   checkLoggedIn: async () => {
-    return Axios.post(`/api/admin/login`).then(res => {
+    return Axios.post(`${process.env.VUE_APP_API}/admin/login`).then(res => {
       return res.status
     })
   },
   getOne: (endpoint, nsfw, callback) => {
     Axios({
       method: "get",
-      url: `/api/${nsfw ? "nsfw" : "sfw"}/${endpoint}`,
+      url: `${process.env.VUE_APP_API}/${nsfw ? "nsfw" : "sfw"}/${endpoint}`,
     }).then((response) => {
       callback(response.data)
     })
@@ -25,7 +24,7 @@ export const api = {
   generateImage: (endpoint, nsfw, text, callback) => {
     Axios({
       method: "post",
-      url: `/api/gen`,
+      url: `${process.env.VUE_APP_API}/gen`,
       responseType: 'arraybuffer',
       data: {
         endpoint: {

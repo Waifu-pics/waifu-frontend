@@ -45,7 +45,7 @@ export default {
       
       Axios({
         method: "post",
-        url: `/api/admin/login`,
+        url: `${process.env.VUE_APP_API}/admin/login`,
         data: {
           username: username,
           password: password,

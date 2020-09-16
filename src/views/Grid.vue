@@ -48,7 +48,7 @@ export default {
 
       Axios({
         method: "post",
-        url: `/api/many/${type === undefined ? 'sfw' : type}/${endpoint === undefined ? 'waifu' : endpoint}`,
+        url: `${process.env.VUE_APP_API}/many/${type === undefined ? 'sfw' : type}/${endpoint === undefined ? 'waifu' : endpoint}`,
         data: {
           exclude: this.exclude,
         },
