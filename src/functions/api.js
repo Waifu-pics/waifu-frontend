@@ -3,7 +3,7 @@ export const api = {
   getEndpoints: (callback) => {
     Axios({
       method: "get",
-      url: `${process.env.VUE_APP_API}/api/endpoints`,
+      url: `${process.env.VUE_APP_API}/endpoints`,
     }).then((response) => {
       callback(response.data)
     })
