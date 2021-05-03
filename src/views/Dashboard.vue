@@ -103,7 +103,7 @@ export default {
     search: function () {
       Axios({
         method: "post",
-        url: `/api/admin/list`,
+        url: `${process.env.VUE_APP_API}/admin/list`,
         data: {
           endpoint: this.endpoint,
           nsfw: this.nsfw,
@@ -135,12 +135,14 @@ export default {
     },
   },
   mounted: function () {
-    api.checkLoggedIn().then(() => {
-      this.loggedin = true
-      this.update()
-      this.search()
-    }).catch(() => {
-      this.$router.push('/admin/login')
+    api.checkLoggedIn((code) => {
+      if (code != 202) {
+        this.$router.push('/admin/login')
+      } else {
+        this.loggedin = true
+        this.update()
+        this.search()
+      }
     })
   },
 }
