@@ -27,7 +27,7 @@
 <script>
 import vueFilePond from 'vue-filepond'
 import 'filepond/dist/filepond.min.css'
-import { api } from '@/functions/api.js'
+import { api } from '@/api.js'
 import FilePondPluginFileMetadata from "filepond-plugin-file-metadata"
 
 const FilePond = vueFilePond(

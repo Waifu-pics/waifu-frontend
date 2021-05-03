@@ -57,7 +57,7 @@ export default {
           this.exclude.push(file)
         })
         this.images = response.data.files
-      }).catch((response) => {
+      }).catch(() => {
         if (first) {
           this.is404 = true
         } else {

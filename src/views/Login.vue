@@ -31,7 +31,7 @@
 
 <script>
 import Axios from 'axios'
-import { api } from '@/functions/api.js'
+import { api } from '@/api.js'
 
 export default {
   data: function () {

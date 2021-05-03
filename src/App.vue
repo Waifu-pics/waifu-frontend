@@ -18,7 +18,6 @@
 
 <script>
 import Navbar from './components/Navbar.vue'
-import store from '@/store/index.js'
 
 export default {
   name: 'App',

@@ -7,14 +7,13 @@
           <p>The open and supported part of the waifu.pics api is incredibly easy to use. You can find more information about how to utilize this in your application below.</p>
         </div>
         <v-alert type="info" outlined>
-          If you have any issues or questions with the API, please create a Github issue at <a href="https://github.com/Riku32/waifu.pics">https://github.com/Riku32/waifu.pics</a>
+          If you have any issues or questions with the API, please create a Github issue at <a href="https://github.com/Waifu-pics/waifu-api">https://github.com/Waifu-pics/waifu-api</a>
         </v-alert>
         <div>
           <p>Below is documentation for the waifu.pics API</p>
         </div>
         <v-divider></v-divider>
       </div>
-      
       
       <div>
         <h2 class="font-weight-light tab">Image Categories</h2>
@@ -87,45 +86,12 @@
           <vue-json-pretty :data="examples.many" />
         </div>
         <v-divider></v-divider>
-
-        <!-- <div class="compact">
-          <div class="tab">
-            <h2 class="font-weight-light">Generate image</h2>
-            <p>Generate a meme from a random image</p>
-          </div>
-          <Apitable class="tab" type="POST">
-            https://waifu.pics/api/gen
-          </Apitable>
-          <div class="tab">
-            <Comment>This endpoint is ratelimited, you must only generate one image every two seconds</Comment>
-          </div>
-          <div class="tab">
-            <h3 class="font-weight-light">Fields</h3>
-            <p>Fields that can be sent to this endpoint</p>
-            <v-treeview
-              dense
-              :items="gentree"
-            ></v-treeview>
-          </div>
-          <div class="tab">
-            <h3 class="font-weight-light">Response</h3>
-            <p>This endpoint returns a buffer of the image</p>
-          </div>
-          <div class="tab">
-            <h3 class="font-weight-light">Request</h3>
-            <p>Here is an example request for this endpoint</p>
-            <vue-json-pretty :data="examples.gen" />
-          </div>
-        </div>
-        <v-divider></v-divider> -->
       </div>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import Axios from 'axios'
-import { api } from '@/functions/api.js'
 import Apitable from '@/components/Docs/Apitable.vue'
 import Reqtable from '@/components/Docs/Reqtable.vue'
 import Comment from '@/components/Docs/Minicomment.vue'
@@ -143,40 +109,9 @@ export default {
     return {
       api: process.env.VUE_APP_API,
       examples: {
-        one: JSON.parse(`{"url":"https://i.waifu.pics/Tj6Wzwo.png"}`),
-        many: JSON.parse(`{"files": ["https://i.waifu.pics/qUY7BBo.jpg"]}`),
-        gen: JSON.parse(`{"endpoint":{"type":"waifu","nsfw":false},"text":{"top":"Top Text","bottom":"Bottom Text"}}`),
+        one: JSON.parse(`{"url":"${VUE_APP_CDN}Tj6Wzwo.png"}`),
+        many: JSON.parse(`{"files": ["${VUE_APP_CDN}qUY7BBo.jpg"]}`),
       },
-      gentree: [
-        {
-          id: 1,
-          name: "endpoint",
-          children: [
-            {
-              id: 2, 
-              name: "type : string, image category",
-            },
-            {
-              id: 3, 
-              name: "nsfw : boolean, is image nsfw?",
-            },
-          ],
-        },
-        {
-          id: 4,
-          name: "text",
-          children: [
-            {
-              id: 5, 
-              name: "top : string, top text of image",
-            },
-            {
-              id: 6, 
-              name: "bottom : string, bottom text of image",
-            },
-          ],
-        },
-      ],
     }
   },
 }

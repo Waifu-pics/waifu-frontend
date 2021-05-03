@@ -5,7 +5,6 @@ import Grid from '@/views/Grid.vue'
 import Docs from '@/views/Docs.vue'
 import Login from '@/views/Login.vue'
 import Upload from '@/views/Upload.vue'
-import Gen from '@/views/Gen.vue'
 import Dashboard from '@/views/Dashboard.vue'
 
 Vue.use(VueRouter)
@@ -31,11 +30,6 @@ const routes = [
     name: 'Upload',
     component: Upload,
   },
-  // {
-  //   path: '/gen',
-  //   name: 'Generator',
-  //   component: Gen,
-  // },
   {
     path: '/admin/login',
     name: 'Login',
