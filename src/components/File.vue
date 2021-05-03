@@ -48,6 +48,7 @@ export default {
             this.file.name,
           ],
         },
+        withCredentials: true,
       }).then((res) => {
         this.$notification.success(`${this.file.name} was successfuly ${plural}!`)
 
