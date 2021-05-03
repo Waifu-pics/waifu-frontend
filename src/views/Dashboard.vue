@@ -135,14 +135,12 @@ export default {
     },
   },
   mounted: function () {
-    api.checkLoggedIn((code) => {
-      if (code != 202) {
-        this.$router.push('/admin/login')
-      } else {
-        this.loggedin = true
-        this.update()
-        this.search()
-      }
+    api.checkLoggedIn().then(() => {
+      this.loggedin = true
+      this.update()
+      this.search()
+    }).catch(() => {
+      this.$router.push('/admin/login')
     })
   },
 }

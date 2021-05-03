@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!loggedin" class="centered">
+  <div v-if="show" class="centered">
     <v-card max-width="400" outlined>
       <div class="topbox">
         <h1 class="font-weight-light">Sign in</h1>
@@ -36,7 +36,7 @@ import { api } from '@/api.js'
 export default {
   data: function () {
     return {
-      loggedin: true,
+      show: false,
     }
   },
   methods: {
@@ -60,12 +60,10 @@ export default {
     },
   },
   mounted: function () {
-    api.checkLoggedIn((code) => {
-      if (code != 202) {
-        this.loggedin = false
-      } else {
-        this.$router.push('/admin')
-      }
+    api.checkLoggedIn().then(() => {
+      this.$router.push('/admin')
+    }).catch(() => {
+      this.show = true
     })
   },
 }

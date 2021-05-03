@@ -44,6 +44,7 @@ export default {
         process: {
           url: `${process.env.VUE_APP_API}/upload`,
           method: 'POST',
+          withCredentials: true,
         },
       },
     }

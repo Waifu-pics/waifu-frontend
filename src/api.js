@@ -9,13 +9,12 @@ export const api = {
       callback(res.data)
     })
   },
-  checkLoggedIn: (callback) => {
-    Axios({
+  checkLoggedIn: () => {
+    return Axios({
       method: "post",
       url: `${process.env.VUE_APP_API}admin/login`,
       withCredentials: true,
-    }).then((res) => callback(res.status))
-      .catch((res) => callback(res.status))
+    })
   },
   getOne: (endpoint, nsfw, callback) => {
     Axios({
