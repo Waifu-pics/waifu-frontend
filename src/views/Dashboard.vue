@@ -78,6 +78,7 @@ export default {
         data: {
           files: this.deletelist,
         },
+        withCredentials: true,
       }).then((res) => {
         this.$notification.success(res.data.message)
 
@@ -109,6 +110,7 @@ export default {
           query: this.query,
           verified: this.verbtn,
         },
+        withCredentials: true,
       }).then((response) => {
         let query = []
         this.verified = this.verbtn

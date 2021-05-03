@@ -10,7 +10,7 @@ export const api = {
     })
   },
   checkLoggedIn: async () => {
-    return Axios.post(`${process.env.VUE_APP_API}admin/login`).then(res => {
+    return Axios.post(`${process.env.VUE_APP_API}admin/login`, { withCredentials: true }).then(res => {
       return res.status
     })
   },
