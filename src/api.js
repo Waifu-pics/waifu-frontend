@@ -5,12 +5,16 @@ export const api = {
     Axios({
       method: "get",
       url: `${process.env.VUE_APP_API}endpoints`,
-    }).then((response) => {
-      callback(response.data)
+    }).then((res) => {
+      callback(res.data)
     })
   },
   checkLoggedIn: async () => {
-    return Axios.post(`${process.env.VUE_APP_API}admin/login`, { withCredentials: true }).then(res => {
+    Axios({
+      method: "post",
+      url: `${process.env.VUE_APP_API}admin/login`,
+      withCredentials: true,
+    }).then((res) => {
       return res.status
     })
   },
@@ -18,8 +22,8 @@ export const api = {
     Axios({
       method: "get",
       url: `${process.env.VUE_APP_API}${nsfw ? "nsfw" : "sfw"}/${endpoint}`,
-    }).then((response) => {
-      callback(response.data)
+    }).then((res) => {
+      callback(res.data)
     })
   },
 }
