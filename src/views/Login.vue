@@ -60,10 +60,12 @@ export default {
     },
   },
   mounted: function () {
-    api.checkLoggedIn().then(() => {
-      this.$router.push('/admin')
-    }).catch(() => {
-      this.loggedin = false
+    api.checkLoggedIn((code) => {
+      if (code != 202) {
+        this.loggedin = false
+      } else {
+        this.$router.push('/admin')
+      }
     })
   },
 }
