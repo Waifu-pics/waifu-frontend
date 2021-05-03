@@ -9,9 +9,9 @@
         <v-alert type="info" outlined>
           If you have any issues or questions with the API, please create a Github issue at <a href="https://github.com/Waifu-pics/waifu-api">https://github.com/Waifu-pics/waifu-api</a>
         </v-alert>
-        <div>
-          <p>Below is documentation for the waifu.pics API</p>
-        </div>
+        <v-alert type="warning" outlined>
+          Currently we have switched the API url to https://api.waifu.pics from https://waifu.pics/api. While that route does still work, you should switch any existing application to use the newer URL.
+        </v-alert>
         <v-divider></v-divider>
       </div>
       
@@ -110,8 +110,8 @@ export default {
     return {
       api: process.env.VUE_APP_API,
       examples: {
-        one: JSON.parse(`{"url": "${process.env.VUE_APP_API}Tj6Wzwo.png"}`),
-        many: JSON.parse(`{"files": ["${process.env.VUE_APP_API}qUY7BBo.jpg"]}`),
+        one: JSON.parse(`{"url": "${process.env.VUE_APP_CDN}Tj6Wzwo.png"}`),
+        many: JSON.parse(`{"files": ["${process.env.VUE_APP_CDN}qUY7BBo.jpg"]}`),
       },
     }
   },
