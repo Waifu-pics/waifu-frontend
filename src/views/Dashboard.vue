@@ -48,9 +48,8 @@
 
 <script>
 import Axios from 'axios'
-import { api } from '@/functions/api.js'
+import { api } from '@/api.js'
 import Filebox from '@/components/File.vue'
-import store from '@/store/index.js'
 
 export default {
   data () {
