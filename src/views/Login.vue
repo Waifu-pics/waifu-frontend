@@ -50,6 +50,7 @@ export default {
           username: username,
           password: password,
         },
+        withCredentials: true,
       }).then(() => {
         this.$notification.success("You have been logged in!")
         this.$router.push('/admin')
