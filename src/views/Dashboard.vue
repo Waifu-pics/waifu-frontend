@@ -94,7 +94,7 @@ export default {
     logout: function () {
       // Remove cookie
       this.loggedin = false
-      document.cookie = "auth-token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+      document.cookie = `auth-token=; domain=.${process.env.VUE_APP_API}; expires=Thu, 01-Jan-70 00:00:01 GMT;`
 
       // Send notif and go to login
       this.$notification.success("You have been logged out!")
