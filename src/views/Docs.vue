@@ -49,7 +49,7 @@
           <p>Recieve one image url from your endpoint of choice.</p>
         </div>
         <Apitable type="GET">
-          {{api}}/<span class="vararg">type</span>/<span class="vararg">category</span>
+          {{api}}<span class="vararg">type</span>/<span class="vararg">category</span>
         </Apitable>
         <div class="tab">
           <Comment>The type field is the type classification. Valid types are <b>sfw</b> and <b>nsfw</b>.</Comment>
@@ -68,7 +68,7 @@
           <p>Recieve 30 unique images from a specific endpoint or category</p>
         </div>
         <Apitable class="tab" type="POST">
-          {{api}}/many/<span class="vararg">type</span>/<span class="vararg">category</span>
+          {{api}}many/<span class="vararg">type</span>/<span class="vararg">category</span>
         </Apitable>
         <div class="tab">
           <Comment>The type field is the type classification. Valid types are <b>sfw</b> and <b>nsfw</b>.</Comment>
@@ -96,6 +96,7 @@ import Apitable from '@/components/Docs/Apitable.vue'
 import Reqtable from '@/components/Docs/Reqtable.vue'
 import Comment from '@/components/Docs/Minicomment.vue'
 import VueJsonPretty from 'vue-json-pretty'
+import 'vue-json-pretty/lib/styles.css'
 
 export default {
   name: 'More',
@@ -109,8 +110,8 @@ export default {
     return {
       api: process.env.VUE_APP_API,
       examples: {
-        one: JSON.parse(`{"url":"${VUE_APP_CDN}Tj6Wzwo.png"}`),
-        many: JSON.parse(`{"files": ["${VUE_APP_CDN}qUY7BBo.jpg"]}`),
+        one: JSON.parse(`{"url": "${process.env.VUE_APP_API}Tj6Wzwo.png"}`),
+        many: JSON.parse(`{"files": ["${process.env.VUE_APP_API}qUY7BBo.jpg"]}`),
       },
     }
   },
