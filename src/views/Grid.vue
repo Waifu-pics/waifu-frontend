@@ -131,6 +131,5 @@ export default {
 }
 .preview-image {
   max-width: calc(100vw - 2rem);
-  max-height: calc(100vh - 4rem);
 }
 </style>
