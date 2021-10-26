@@ -51,8 +51,6 @@ export default {
   },
   methods: {
     imagePreview: function(imageUrl){ 
-      // eslint-disable-next-line no-console
-      console.log(imageUrl)
       this.ImageDialog = {
         show: true,
         url: imageUrl,
