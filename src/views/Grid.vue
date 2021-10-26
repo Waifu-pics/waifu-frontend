@@ -10,9 +10,12 @@
     </v-btn>
     <div id="photos">
       <div v-for="image in images" v-bind:key="image">
-        <img :src="image">
+        <img :src="image" @click="imagePreview(image)">
       </div>
     </div>
+    <v-dialog v-model="ImageDialog.show" max-width="500px">
+      <img class="preview-image" :src="ImageDialog.url" />
+    </v-dialog>
   </div>
 </template>
 
@@ -25,6 +28,10 @@ export default {
       exclude: [],
       images: [],
       is404: false,
+      ImageDialog: { 
+        show: false,
+        url: '', 
+      },
     }
   },
   watch: {
@@ -43,6 +50,14 @@ export default {
     this.getImages(true)
   },
   methods: {
+    imagePreview: function(imageUrl){ 
+      // eslint-disable-next-line no-console
+      console.log(imageUrl)
+      this.ImageDialog = {
+        show: true,
+        url: imageUrl,
+      }
+    },
     getImages: function (first) {
       const { type, endpoint } = this.$route.params
 
@@ -113,5 +128,9 @@ export default {
       -webkit-column-count: 1;
       column-count:         1;
     }
+}
+.preview-image {
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100vh - 4rem);
 }
 </style>
