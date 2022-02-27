@@ -42,7 +42,7 @@ export default {
       nsfw: false,
       server: {
         process: {
-          url: `${process.env.VUE_APP_API}/upload`,
+          url: `${process.env.VUE_APP_API}upload`,
           method: 'POST',
           withCredentials: true,
         },
