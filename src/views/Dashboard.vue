@@ -74,7 +74,7 @@ export default {
 
       Axios({
         method: "post",
-        url: `${process.env.VUE_APP_API}/admin/${endpoint}`,
+        url: `${process.env.VUE_APP_API}admin/${endpoint}`,
         data: {
           files: this.deletelist,
         },
@@ -103,7 +103,7 @@ export default {
     search: function () {
       Axios({
         method: "post",
-        url: `${process.env.VUE_APP_API}/admin/list`,
+        url: `${process.env.VUE_APP_API}admin/list`,
         data: {
           endpoint: this.endpoint,
           nsfw: this.nsfw,
