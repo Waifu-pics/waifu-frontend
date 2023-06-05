@@ -12,16 +12,12 @@
       <div v-for="image in images" v-bind:key="image">
         <v-img class="photos-item" :src="image" loading="lazy" height="100%" :lazy-src="'https://picsum.photos/id/11/100/60'" @click="imagePreview(image)" >
           <template v-slot:placeholder>
-            <v-row
-              class="fill-height ma-0"
-              align="center"
-              justify="center"
-            >
+            <div class="d-flex align-center justify-center fill-height">
               <v-progress-circular
+                color="grey-lighten-4"
                 indeterminate
-                color="grey-lighten-5"
-              ></v-progress-circular>
-            </v-row>
+              />
+            </div>
           </template>
         </v-img>
       </div>
