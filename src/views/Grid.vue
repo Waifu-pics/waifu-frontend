@@ -10,7 +10,20 @@
     </v-btn>
     <div id="photos">
       <div v-for="image in images" v-bind:key="image">
-        <img :src="image" @click="imagePreview(image)">
+        <v-img class="photos-item" :src="image" loading="lazy" height="100%" :lazy-src="'https://picsum.photos/id/11/100/60'" @click="imagePreview(image)" >
+          <template v-slot:placeholder>
+            <v-row
+              class="fill-height ma-0"
+              align="center"
+              justify="center"
+            >
+              <v-progress-circular
+                indeterminate
+                color="grey-lighten-5"
+              ></v-progress-circular>
+            </v-row>
+          </template>
+        </v-img>
       </div>
     </div>
     <v-dialog v-model="ImageDialog.show" max-width="500px">
@@ -101,9 +114,17 @@ export default {
     column-count:         5;
     column-gap:           0px;
 
-    img {
+    .photos-item{
       width: 100% !important;
       height: auto !important;
+
+      &:has(.v-image__placeholder){
+        min-height: 300px;
+
+        @media (min-width: 1000px){
+          min-height: 400px;
+        }
+      }
     }
 
     @media (max-width: 1200px) {
